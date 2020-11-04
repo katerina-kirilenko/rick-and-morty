@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 import CharactersList from 'components/blocks/CharactersList/';
-import { CharactersPageProps } from './types';
 import './style.css';
 
-const CharactersPage = ({ history }: CharactersPageProps): ReactElement => {
-  const handler = (id: string) => (): void => history.push(id);
+const CharactersPage = (): ReactElement => {
+  const history = useHistory();
+  const handler = useCallback((id: string) => (): void => history.push(id), [history]);
 
   return (
     <div>

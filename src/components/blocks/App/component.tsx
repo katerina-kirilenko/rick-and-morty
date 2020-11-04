@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { MAIN, CHARACTERS, EPISODES, LOCATIONS, SELECTED_CHARACTER } from 'constants/paths';
 import MainPage from 'components/pages/MainPage';
 import CharactersPage from 'components/pages/CharactersPage';
@@ -13,7 +13,7 @@ const App = (): ReactElement => {
     <Router>
       <div className="App">
         <Route path={MAIN} component={MainPage} exact />
-        <Route path={CHARACTERS} component={withRouter(CharactersPage)} exact />
+        <Route path={CHARACTERS} component={CharactersPage} exact />
         <Route path={LOCATIONS} component={LocationsPage} exact />
         <Route path={EPISODES} component={EpisodesPage} exact />
 
