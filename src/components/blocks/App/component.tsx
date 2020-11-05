@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 import { MAIN, CHARACTERS, EPISODES, LOCATIONS, SELECTED_CHARACTER } from 'constants/paths';
 import MainPage from 'components/pages/MainPage';
 import CharactersPage from 'components/pages/CharactersPage';
@@ -12,12 +14,14 @@ const App = (): ReactElement => {
   return (
     <Router>
       <div className="App">
-        <Route path={MAIN} component={MainPage} exact />
-        <Route path={CHARACTERS} component={CharactersPage} exact />
-        <Route path={LOCATIONS} component={LocationsPage} exact />
-        <Route path={EPISODES} component={EpisodesPage} exact />
+        <Provider store={store}>
+          <Route path={MAIN} component={MainPage} exact />
+          <Route path={CHARACTERS} component={CharactersPage} exact />
+          <Route path={LOCATIONS} component={LocationsPage} exact />
+          <Route path={EPISODES} component={EpisodesPage} exact />
 
-        <Route path={SELECTED_CHARACTER} component={CharacterPage} />
+          <Route path={SELECTED_CHARACTER} component={CharacterPage} />
+        </Provider>
       </div>
     </Router>
   );

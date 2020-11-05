@@ -1,3 +1,3 @@
-import CharactersPage from './component';
+import CharactersList from './component';
 
-export default CharactersPage;
+export default CharactersList;
