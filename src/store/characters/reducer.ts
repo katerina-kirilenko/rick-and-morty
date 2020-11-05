@@ -3,8 +3,7 @@ import {
   CHARACTERS_DATA_RESPONSE,
   CHARACTERS_DATA_FAILED,
 } from 'constants/actions';
-import { InitialStateTypes } from './types';
-import { DataCharactersActionTypes } from 'actions/types';
+import { DataCharactersActionTypes, InitialStateCharacters } from './types';
 
 const initialState = {
   data: null,
@@ -12,7 +11,10 @@ const initialState = {
   error: null,
 };
 
-export default (state = initialState, action: DataCharactersActionTypes): InitialStateTypes => {
+export default (
+  state = initialState,
+  action: DataCharactersActionTypes,
+): InitialStateCharacters => {
   switch (action.type) {
     case CHARACTERS_DATA_REQUEST:
       return {

@@ -1,5 +1,7 @@
-import { Character } from './characters';
-import { Location } from './locations';
-import { Episode } from './episodes';
+import { InitialStateCharacters } from 'store/characters/types';
 
-export type ItemListTypes = Character | Location | Episode;
+export interface GeneralStateTypes {
+  characters: InitialStateCharacters;
+  locations: null;
+  episodes: null;
+}

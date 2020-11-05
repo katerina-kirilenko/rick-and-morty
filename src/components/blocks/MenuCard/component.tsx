@@ -1,7 +1,7 @@
 import React, { ReactElement, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { MenuCardProps } from './types';
-import { fetchDataCharactersRequest } from 'actions/';
+import { fetchDataCharactersRequest } from 'store/characters';
 import './style.css';
 
 const MenuCard = ({ img, label }: MenuCardProps): ReactElement => {

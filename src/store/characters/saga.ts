@@ -1,6 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { CHARACTERS_DATA_REQUEST } from 'constants/actions';
-import { fetchDataCharactersResponse, fetchDataCharactersFailed } from 'actions/actions';
+import { fetchDataCharactersResponse, fetchDataCharactersFailed } from './actions';
 import getCharacters from 'api/fetchCharactersList';
 
 function* getDataCharacters() {

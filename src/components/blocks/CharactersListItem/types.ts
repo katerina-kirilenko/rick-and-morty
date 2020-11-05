@@ -1,7 +1,7 @@
 import { MouseEvent } from 'react';
-import { ItemListTypes } from 'types/';
+import { Character } from 'types/characters';
 
-export interface ListItemProps {
-  data: ItemListTypes;
+export interface CharactersListItemProps {
+  data: Character;
   onItemSelected: (id: string) => (event: MouseEvent<HTMLElement>) => void;
 }

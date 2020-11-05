@@ -1,6 +1,6 @@
 import React, { ReactElement, useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import List from 'components/blocks/List';
+import CharactersList from 'components/blocks/CharactersList';
 import Header from 'components/blocks/Header';
 import Pagination from 'components/blocks/Pagination';
 import './style.css';
@@ -14,7 +14,7 @@ const CharactersPage = (): ReactElement => {
       <Header />
       <section className="characters-container">
         <h3 className="title-list">Characters List</h3>
-        <List onItemSelected={handler} />
+        <CharactersList onItemSelected={handler} />
         <Pagination />
       </section>
     </div>
