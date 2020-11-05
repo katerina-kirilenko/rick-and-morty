@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgb(36, 40, 47);
+  background: var(--dark-bg-color);
 }
 
 .page-description {
