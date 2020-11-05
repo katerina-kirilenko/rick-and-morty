@@ -16,13 +16,11 @@ const Header = (): ReactElement => {
     <div className="header">
       <img src={icon} alt="icon" />
       <div>
-        {headerLinks.map((link) => {
-          return (
-            <Link to={link.path} key={link.label} className="link">
-              <span className="link-label">{link.label}</span>
-            </Link>
-          );
-        })}
+        {headerLinks.map((link) => (
+          <Link to={link.path} key={link.label} className="link">
+            <span className="link-label">{link.label}</span>
+          </Link>
+        ))}
       </div>
     </div>
   );

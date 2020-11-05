@@ -12,7 +12,7 @@ const List = ({ onItemSelected }: ListProps): ReactElement => {
   const { data, isLoading, error } = useSelector(getState);
   const hasData = !(isLoading || error);
 
-  const dataListItems = data
+  const renderList = data
     ? data.map((item: ItemListTypes) => {
         return <ListItem onItemSelected={onItemSelected} data={item} key={item.id} />;
       })
@@ -22,7 +22,7 @@ const List = ({ onItemSelected }: ListProps): ReactElement => {
     <ul className="characters-list">
       {error && <ErrorAlert errorText={error} />}
       {isLoading && <Spinner />}
-      {hasData && dataListItems}
+      {hasData && renderList}
     </ul>
   );
 };

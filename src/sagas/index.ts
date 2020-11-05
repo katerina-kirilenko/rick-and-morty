@@ -9,7 +9,6 @@ function* getDataCharacters() {
 
     yield put(fetchDataCharactersResponse(dataCharacters));
   } catch (error) {
-    console.log('function*getDataCharacters -> error'); //
     yield put(fetchDataCharactersFailed(`Something went wrong ${error}`));
   }
 }
