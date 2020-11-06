@@ -1,16 +1,17 @@
 .characters-page {
   background-color: var(--dark-bg-color);
-  height: 100vh;
+  padding-bottom: 1rem;
 }
 
 .characters-container {
-  width: 96%;
-  margin: 0 auto;
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   background-color: var(--light-bg-color);
 }
 
-.title-list {
-  margin: 5px;
+@media screen and (max-width: 500px) {
+  .characters-container {
+    padding: 0;
+    background-color: transparent;
+  }
 }

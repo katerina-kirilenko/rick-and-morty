@@ -23,11 +23,20 @@ const CharactersList = ({ onItemSelected }: ListProps): ReactElement => {
   }, [data]);
 
   return (
-    <ul className="characters-list">
+    <div className="characters-list">
       {error && <ErrorAlert errorText={error} />}
       {isLoading && <Spinner />}
-      {hasData && renderList()}
-    </ul>
+      {data && (
+        <div className="list-header">
+          <span className="list-title-img">Photo</span>
+          <span className="list-title-name">Name</span>
+          <span className="list-title-status">Status – Species</span>
+          <span className="list-title-origin">Origin location</span>
+          <span className="list-title-location">Last known location</span>
+        </div>
+      )}
+      <ul>{hasData && renderList()}</ul>
+    </div>
   );
 };
 

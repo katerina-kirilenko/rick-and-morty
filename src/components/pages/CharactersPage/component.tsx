@@ -11,12 +11,13 @@ const CharactersPage = (): ReactElement => {
 
   return (
     <div className="characters-page">
-      <Header />
-      <section className="characters-container">
-        <h3 className="title-list">Characters List</h3>
-        <CharactersList onItemSelected={handler} />
-        <Pagination />
-      </section>
+      <div className="wpapper">
+        <Header />
+        <section className="characters-container">
+          <CharactersList onItemSelected={handler} />
+          <Pagination />
+        </section>
+      </div>
     </div>
   );
 };

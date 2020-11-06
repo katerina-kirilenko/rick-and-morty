@@ -27,3 +27,10 @@ code {
 a:hover {
   transition: all 0.2s ease 0s;
 }
+
+.wpapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
