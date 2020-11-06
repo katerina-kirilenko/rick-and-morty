@@ -1,0 +1,42 @@
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem;
+  width: 100%;
+  max-width: 200px;
+  background-color: rgb(60, 62, 68);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px, rgba(0, 0, 0, 0.3) 0px 2px 4px -1px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.menu-card:hover h3 {
+  color: var(--primary-color);
+}
+
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.img-wrapper img {
+  width: 100%;
+}
+
+.card-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title {
+  color: rgb(216, 216, 216);
+  text-transform: capitalize;
+}
+
+.card-description:hover {
+  cursor: pointer;
+}
