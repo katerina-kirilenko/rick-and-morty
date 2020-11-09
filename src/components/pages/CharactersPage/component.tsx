@@ -15,6 +15,10 @@ import ErrorAlert from 'components/blocks/ErrorAlert';
 import Spinner from 'components/blocks/Spinner';
 import './style.css';
 
+interface dataType {
+  selected: number;
+}
+
 const CharactersPage = (): ReactElement => {
   const dispatch = useDispatch();
   const pagesCount = useSelector(getPagesCount);
@@ -24,14 +28,16 @@ const CharactersPage = (): ReactElement => {
   const hasData = !(isLoading || error);
 
   const history = useHistory();
-  const handler = useCallback((id: string) => (): void => history.push(id), [history]);
+  const handler = useCallback((id: string | number) => (): void => history.push(`${id}`), [
+    history,
+  ]);
 
   useEffect(() => {
     dispatch(fetchDataCharactersRequest());
   }, [currentPage]);
 
   const handleClickPage = useCallback(
-    (data) => {
+    (data: dataType): void => {
       dispatch(setCurrentPage(data.selected + 1));
     },
     [dispatch],

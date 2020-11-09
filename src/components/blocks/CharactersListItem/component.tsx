@@ -6,7 +6,7 @@ const CharactersListItem = ({ data, onItemSelected }: CharactersListItemProps): 
   const { id, image, name, status, species, origin, location } = data;
 
   return (
-    <li id={`${id}`} onClick={onItemSelected(`${id}`)} className="list-item">
+    <li id={`${id}`} onClick={onItemSelected(id)} className="list-item">
       <div className="character-img">
         <img src={image} alt={name} className="avatar" />
       </div>
