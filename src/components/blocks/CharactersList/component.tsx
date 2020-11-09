@@ -1,17 +1,10 @@
 import React, { ReactElement, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import CharactersListItem from 'components/blocks/CharactersListItem';
 import { ListProps } from './types';
 import { Character } from 'types/characters';
-import { getCharacters } from 'store/characters';
-import ErrorAlert from 'components/blocks/ErrorAlert';
-import Spinner from 'components/blocks/Spinner';
 import './style.css';
 
-const CharactersList = ({ onItemSelected }: ListProps): ReactElement => {
-  const { data, isLoading, error } = useSelector(getCharacters);
-  const hasData = !(isLoading || error);
-
+const CharactersList = ({ data, onItemSelected }: ListProps): ReactElement => {
   const renderList = useCallback(() => {
     if (data) {
       return data.map((item: Character) => {
@@ -24,8 +17,6 @@ const CharactersList = ({ onItemSelected }: ListProps): ReactElement => {
 
   return (
     <div className="characters-list">
-      {error && <ErrorAlert errorText={error} />}
-      {isLoading && <Spinner />}
       {data && (
         <div className="list-header">
           <span className="list-title-img">Photo</span>
@@ -35,7 +26,7 @@ const CharactersList = ({ onItemSelected }: ListProps): ReactElement => {
           <span className="list-title-location">Last known location</span>
         </div>
       )}
-      <ul>{hasData && renderList()}</ul>
+      <ul>{data && renderList()}</ul>
     </div>
   );
 };
