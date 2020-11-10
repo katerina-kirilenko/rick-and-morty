@@ -38,7 +38,7 @@ const CharactersPage = (): ReactElement => {
 
   const handleClickPage = useCallback(
     (data: dataType): void => {
-      dispatch(setCurrentPage(data.selected + 1));
+      dispatch(setCurrentPage(data.selected));
     },
     [dispatch],
   );
@@ -71,6 +71,7 @@ const CharactersPage = (): ReactElement => {
             marginPagesDisplayed={2}
             pageRangeDisplayed={3}
             onPageChange={handleClickPage}
+            initialPage={currentPage}
           />
         </section>
       </div>

@@ -1,0 +1,70 @@
+.character-page {
+  background-color: var(--dark-bg-color);
+  padding-bottom: 1rem;
+  min-height: 100vh;
+}
+
+.character-container {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--light-bg-color);
+  font-size: 0.85rem;
+}
+
+.about {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  border-bottom: 1px solid #adadad;
+  padding-bottom: 1rem;
+}
+
+.about .photo {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin-right: 3rem;
+  border-radius: 0.5rem;
+}
+
+.about .photo img {
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+}
+
+.about .description {
+  text-align: left;
+  width: 70%;
+}
+
+.about .description span {
+  color: #adadad;
+  margin-right: 0.5rem;
+}
+
+.episodes {
+  text-align: left;
+}
+
+.episodes-list {
+  column-width: 200px;
+  column-count: 3;
+  column-gap: 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about .photo {
+    margin-right: 0;
+  }
+  .about .description {
+    text-align: center;
+  }
+  .about .description span {
+    display: block;
+  }
+}

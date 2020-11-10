@@ -8,11 +8,11 @@ import {
 import { CharactersActionTypes, InitialStateCharacters } from './types';
 
 const initialState = {
-  data: null,
+  data: [],
   isLoading: false,
   error: null,
-  pagesCount: 1,
-  currentPage: 1,
+  pagesCount: 0,
+  currentPage: 0,
 };
 
 export default (state = initialState, action: CharactersActionTypes): InitialStateCharacters => {

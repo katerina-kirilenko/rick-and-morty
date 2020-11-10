@@ -7,7 +7,7 @@ import getCharacters from 'api/fetchCharactersList';
 function* getDataCharacters() {
   try {
     const currentPage = yield select(getCurrentPage);
-    const { info, results } = yield call(getCharacters, currentPage);
+    const { info, results } = yield call(getCharacters, currentPage + 1);
 
     yield put(fetchDataCharactersResponse(results));
     yield put(setPagesCount(info.pages));

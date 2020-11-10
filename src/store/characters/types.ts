@@ -8,7 +8,7 @@ import {
 import { Character } from 'types/characters';
 
 export interface InitialStateCharacters {
-  data: Character[] | null;
+  data: Character[];
   isLoading: boolean;
   error: string | null;
   pagesCount: number;
