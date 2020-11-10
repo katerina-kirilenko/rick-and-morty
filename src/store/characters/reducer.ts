@@ -2,19 +2,20 @@ import {
   CHARACTERS_DATA_REQUEST,
   CHARACTERS_DATA_RESPONSE,
   CHARACTERS_DATA_FAILED,
+  SET_PAGES_COUNT,
+  SET_CURRENT_PAGE,
 } from 'constants/actions';
-import { DataCharactersActionTypes, InitialStateCharacters } from './types';
+import { CharactersActionTypes, InitialStateCharacters } from './types';
 
 const initialState = {
-  data: null,
+  data: [],
   isLoading: false,
   error: null,
+  pagesCount: 0,
+  currentPage: 0,
 };
 
-export default (
-  state = initialState,
-  action: DataCharactersActionTypes,
-): InitialStateCharacters => {
+export default (state = initialState, action: CharactersActionTypes): InitialStateCharacters => {
   switch (action.type) {
     case CHARACTERS_DATA_REQUEST:
       return {
@@ -32,6 +33,16 @@ export default (
         ...state,
         error: action.payload,
         isLoading: false,
+      };
+    case SET_PAGES_COUNT:
+      return {
+        ...state,
+        pagesCount: action.payload,
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
       };
     default:
       return state;

@@ -2,30 +2,46 @@ import {
   CHARACTERS_DATA_REQUEST,
   CHARACTERS_DATA_RESPONSE,
   CHARACTERS_DATA_FAILED,
+  SET_PAGES_COUNT,
+  SET_CURRENT_PAGE,
 } from 'constants/actions';
 import { Character } from 'types/characters';
 
 export interface InitialStateCharacters {
-  data: Character[] | null;
+  data: Character[];
   isLoading: boolean;
   error: string | null;
+  pagesCount: number;
+  currentPage: number;
 }
 
-interface RequestDataCharactersAction {
+export interface RequestDataCharactersAction {
   type: typeof CHARACTERS_DATA_REQUEST;
 }
 
-interface ResponseDataCharactersAction {
+export interface ResponseDataCharactersAction {
   type: typeof CHARACTERS_DATA_RESPONSE;
   payload: Character[];
 }
 
-interface FailedDataCharactersAction {
+export interface FailedDataCharactersAction {
   type: typeof CHARACTERS_DATA_FAILED;
   payload: string;
 }
 
-export type DataCharactersActionTypes =
+export interface SetPagesCountAction {
+  type: typeof SET_PAGES_COUNT;
+  payload: number;
+}
+
+export interface SetCurrentPageAction {
+  type: typeof SET_CURRENT_PAGE;
+  payload: number;
+}
+
+export type CharactersActionTypes =
   | RequestDataCharactersAction
   | ResponseDataCharactersAction
-  | FailedDataCharactersAction;
+  | FailedDataCharactersAction
+  | SetPagesCountAction
+  | SetCurrentPageAction;

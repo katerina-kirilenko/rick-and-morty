@@ -15,7 +15,7 @@ const Header = (): ReactElement => {
   return (
     <div className="header">
       <img src={icon} alt="icon" />
-      <div>
+      <div className="header-links">
         {headerLinks.map((link) => (
           <Link to={link.path} key={link.label} className="link">
             <span className="link-label">{link.label}</span>

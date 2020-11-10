@@ -9,4 +9,7 @@ const getCharacters = createSelector(
   ({ characters }): InitialStateCharacters => characters,
 );
 
-export { getCharacters };
+const getPagesCount = createSelector(getCharacters, ({ pagesCount }) => pagesCount);
+const getCurrentPage = createSelector(getCharacters, ({ currentPage }) => currentPage);
+
+export { getCharacters, getPagesCount, getCurrentPage };
