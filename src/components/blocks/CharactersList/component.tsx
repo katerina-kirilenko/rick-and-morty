@@ -1,10 +1,12 @@
 import React, { ReactElement, useCallback } from 'react';
 import CharactersListItem from 'components/blocks/CharactersListItem';
-import { ListProps } from './types';
 import { Character } from 'types/characters';
-import './style.css';
+import { ListProps } from './types';
+import { useClasses } from './styles';
 
 const CharactersList = ({ data, onItemSelected }: ListProps): ReactElement => {
+  const classes = useClasses();
+
   const renderList = useCallback(() => {
     if (data) {
       return data.map((item: Character) => {
@@ -16,14 +18,14 @@ const CharactersList = ({ data, onItemSelected }: ListProps): ReactElement => {
   }, [data]);
 
   return (
-    <div className="characters-list">
+    <div className={classes.list}>
       {data && (
-        <div className="list-header">
-          <span className="list-title-img">Photo</span>
-          <span className="list-title-name">Name</span>
-          <span className="list-title-status">Status – Species</span>
-          <span className="list-title-origin">Origin location</span>
-          <span className="list-title-location">Last known location</span>
+        <div className={classes.listHeader}>
+          <span className={classes.listTitleImg}>Photo</span>
+          <span className={classes.listTitleName}>Name</span>
+          <span className={classes.listTitleStatus}>Status – Species</span>
+          <span className={classes.listTitleOrigin}>Origin location</span>
+          <span className={classes.listTitleLocation}>Last known location</span>
         </div>
       )}
       <ul>{data && renderList()}</ul>

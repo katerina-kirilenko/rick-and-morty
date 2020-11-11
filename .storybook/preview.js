@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { store } from 'store';
-import '../src/components/blocks/App/style.css';
+import '../src/components/blocks/App/styles.ts';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

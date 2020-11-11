@@ -1,10 +1,12 @@
 import React, { ReactElement } from 'react';
 import { ErrorTextType } from './types';
-import './style.css';
+import { useClasses } from './styles';
 
 const ErrorAlert = ({ errorText }: ErrorTextType): ReactElement => {
+  const classes = useClasses();
+
   return (
-    <div className="error-alert">
+    <div className={classes.errorAlert}>
       <span>{errorText}</span>
     </div>
   );

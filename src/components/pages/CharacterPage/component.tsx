@@ -5,9 +5,11 @@ import { CharacterItemProps } from './types';
 import Header from 'components/blocks/Header';
 import { getCharacters } from 'store/characters';
 import { Character } from 'types/characters';
-import './style.css';
+import { useClasses } from './styles';
 
 const CharacterPage = (): ReactElement => {
+  const classes = useClasses();
+
   const { id } = useParams<CharacterItemProps>();
   const { data } = useSelector(getCharacters);
   const character = data.find((character) => character.id === +id) as Character;
@@ -25,43 +27,43 @@ const CharacterPage = (): ReactElement => {
   });
 
   return (
-    <div className="character-page">
+    <div className="page">
       <div className="wrapper">
         <Header />
-        <section className="character-container">
-          <div className="about">
-            <div className="photo">
-              <img src={image} alt={name} className="" />
+        <section className={classes.container}>
+          <div className={classes.about}>
+            <div className={classes.photo}>
+              <img src={image} alt={name} />
             </div>
-            <div className="description">
-              <h4 className="name">
+            <div className={classes.description}>
+              <h4>
                 <span>The name of the character:</span> {name}
               </h4>
-              <p className="status">
+              <p>
                 <span>The status of the character:</span> {status}
               </p>
-              <p className="species">
+              <p>
                 <span>The species of the character:</span> {species}
               </p>
               {type && (
-                <p className="type">
+                <p>
                   <span>The type or subspecies of the character:</span> {type}
                 </p>
               )}
-              <p className="gender">
+              <p>
                 <span>The gender of the character:</span> {gender}
               </p>
-              <p className="origin">
+              <p>
                 <span>Name to the character`s origin location:</span> {origin.name}
               </p>
-              <p className="location">
+              <p>
                 <span>Name to the character`s last known location endpoint:</span> {location.name}
               </p>
             </div>
           </div>
-          <div className="episodes">
+          <div className={classes.episodes}>
             <p>List of episodes in which this character appeared:</p>
-            <ul className="episodes-list">{episodesList}</ul>
+            <ul className={classes.episodesList}>{episodesList}</ul>
           </div>
         </section>
       </div>

@@ -1,7 +1,7 @@
 import React, { ReactElement, useCallback, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Pagination from 'react-paginate';
+import Pagination from 'components/blocks/Pagination';
 import {
   fetchDataCharactersRequest,
   getCharacters,
@@ -13,13 +13,15 @@ import CharactersList from 'components/blocks/CharactersList';
 import Header from 'components/blocks/Header';
 import ErrorAlert from 'components/blocks/ErrorAlert';
 import Spinner from 'components/blocks/Spinner';
-import './style.css';
+import { useClasses } from './styles';
 
 interface dataType {
   selected: number;
 }
 
 const CharactersPage = (): ReactElement => {
+  const classes = useClasses();
+
   const dispatch = useDispatch();
   const pagesCount = useSelector(getPagesCount);
   const currentPage = useSelector(getCurrentPage);
@@ -44,29 +46,15 @@ const CharactersPage = (): ReactElement => {
   );
 
   return (
-    <div className="characters-page">
+    <div className="page">
       <div className="wrapper">
         <Header />
-        <section className="characters-container">
+        <section className={classes.container}>
           {error && <ErrorAlert errorText={error} />}
           {isLoading && <Spinner />}
           {hasData && <CharactersList data={data} onItemSelected={handler} />}
 
           <Pagination
-            previousLabel={'< prev'}
-            nextLabel={'next >'}
-            breakLabel={'...'}
-            breakClassName={'pagination-item'}
-            breakLinkClassName={'pagination-item-link'}
-            pageClassName={'pagination-item'}
-            pageLinkClassName={'pagination-item-link'}
-            activeClassName={'current'}
-            previousClassName={'pagination-item'}
-            nextClassName={'pagination-item'}
-            previousLinkClassName={'pagination-item-link'}
-            nextLinkClassName={'pagination-item-link'}
-            containerClassName={'pagination'}
-            disabledClassName={'inactive'}
             pageCount={pagesCount}
             marginPagesDisplayed={2}
             pageRangeDisplayed={3}

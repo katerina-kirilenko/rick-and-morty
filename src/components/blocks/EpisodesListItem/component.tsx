@@ -1,16 +1,17 @@
 import React, { ReactElement } from 'react';
 import { EpisodesListItemProps } from './types';
-import './style.scss';
+import { useClasses } from './styles';
 
 const EpisodesListItem = ({ data, onItemSelected }: EpisodesListItemProps): ReactElement => {
   const { id, name, air_date } = data;
+  const classes = useClasses();
 
   return (
-    <li id={`${id}`} onClick={onItemSelected(id)} className="list-item">
-      <p className="episode-name">
+    <li id={`${id}`} onClick={onItemSelected(id)} className={classes.listItem}>
+      <p>
         {id}. {name}
       </p>
-      <p className="episode-airdate">{air_date}</p>
+      <p>{air_date}</p>
     </li>
   );
 };

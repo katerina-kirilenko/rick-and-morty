@@ -2,9 +2,11 @@ import React, { ReactElement, useCallback } from 'react';
 import EpisodesListItem from 'components/blocks/EpisodesListItem';
 import { Episode } from 'types/episodes';
 import { ListProps } from './types';
-import './style.scss';
+import { useClasses } from './styles';
 
 const EpisodesList = ({ data, onItemSelected }: ListProps): ReactElement => {
+  const classes = useClasses();
+
   const renderList = useCallback(() => {
     if (data) {
       return data.map((item: Episode) => {
@@ -16,11 +18,11 @@ const EpisodesList = ({ data, onItemSelected }: ListProps): ReactElement => {
   }, [data]);
 
   return (
-    <div className="list episodes-list">
+    <div className={classes.list}>
       {data && (
-        <div className="list-header">
-          <span className="list-title-name">Name</span>
-          <span className="list-title-airdate">Air date</span>
+        <div className={classes.listHeader}>
+          <span>Name</span>
+          <span>Air date</span>
         </div>
       )}
       <ul>{data && renderList()}</ul>

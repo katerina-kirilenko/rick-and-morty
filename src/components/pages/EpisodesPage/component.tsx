@@ -1,8 +1,7 @@
 import React, { ReactElement, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Pagination from 'react-paginate';
-import Header from 'components/blocks/Header';
+import clsx from 'clsx';
 import {
   fetchDataEpisodesRequest,
   getCurrentPage,
@@ -10,16 +9,20 @@ import {
   getEpisodes,
   setCurrentPage,
 } from 'store/episodes';
+import Pagination from 'components/blocks/Pagination';
+import Header from 'components/blocks/Header';
 import ErrorAlert from 'components/blocks/ErrorAlert';
 import Spinner from 'components/blocks/Spinner';
 import EpisodesList from 'components/blocks/EpisodesList';
-import './style.scss';
+import { useClasses } from './styles';
 
 interface dataType {
   selected: number;
 }
 
 const EpisodesPage = (): ReactElement => {
+  const classes = useClasses();
+
   const dispatch = useDispatch();
   const pagesCount = useSelector(getPagesCount);
   const currentPage = useSelector(getCurrentPage);
@@ -44,7 +47,7 @@ const EpisodesPage = (): ReactElement => {
   );
 
   return (
-    <div className="page episodes-page">
+    <div className={clsx('page', classes.episodesPage)}>
       <div className="wrapper">
         <Header />
         <section className="container">
@@ -53,20 +56,6 @@ const EpisodesPage = (): ReactElement => {
           {hasData && <EpisodesList data={data} onItemSelected={handler} />}
 
           <Pagination
-            previousLabel={'< prev'}
-            nextLabel={'next >'}
-            breakLabel={'...'}
-            breakClassName={'pagination-item'}
-            breakLinkClassName={'pagination-item-link'}
-            pageClassName={'pagination-item'}
-            pageLinkClassName={'pagination-item-link'}
-            activeClassName={'current'}
-            previousClassName={'pagination-item'}
-            nextClassName={'pagination-item'}
-            previousLinkClassName={'pagination-item-link'}
-            nextLinkClassName={'pagination-item-link'}
-            containerClassName={'pagination'}
-            disabledClassName={'inactive'}
             pageCount={pagesCount}
             marginPagesDisplayed={2}
             pageRangeDisplayed={3}
