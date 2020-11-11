@@ -2,8 +2,8 @@ import {
   EPISODES_DATA_REQUEST,
   EPISODES_DATA_RESPONSE,
   EPISODES_DATA_FAILED,
-  SET_PAGES_COUNT,
-  SET_CURRENT_PAGE,
+  EPISODES_SET_PAGES_COUNT,
+  EPISODES_SET_CURRENT_PAGE,
 } from 'constants/actions';
 import { Episode } from 'types/episodes';
 
@@ -30,12 +30,12 @@ export interface FailedDataEpisodesAction {
 }
 
 export interface SetPagesCountAction {
-  type: typeof SET_PAGES_COUNT;
+  type: typeof EPISODES_SET_PAGES_COUNT;
   payload: number;
 }
 
 export interface SetCurrentPageAction {
-  type: typeof SET_CURRENT_PAGE;
+  type: typeof EPISODES_SET_CURRENT_PAGE;
   payload: number;
 }
 

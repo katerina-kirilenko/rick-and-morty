@@ -3,8 +3,8 @@ import {
   EPISODES_DATA_REQUEST,
   EPISODES_DATA_RESPONSE,
   EPISODES_DATA_FAILED,
-  SET_PAGES_COUNT,
-  SET_CURRENT_PAGE,
+  EPISODES_SET_PAGES_COUNT,
+  EPISODES_SET_CURRENT_PAGE,
 } from 'constants/actions';
 import {
   RequestDataEpisodesAction,
@@ -29,11 +29,11 @@ export const fetchDataEpisodesFailed = (text: string): FailedDataEpisodesAction 
 });
 
 export const setPagesCount = (count: number): SetPagesCountAction => ({
-  type: SET_PAGES_COUNT,
+  type: EPISODES_SET_PAGES_COUNT,
   payload: count,
 });
 
 export const setCurrentPage = (currentPage: number): SetCurrentPageAction => ({
-  type: SET_CURRENT_PAGE,
+  type: EPISODES_SET_CURRENT_PAGE,
   payload: currentPage,
 });

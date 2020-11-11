@@ -3,8 +3,8 @@ import {
   CHARACTERS_DATA_REQUEST,
   CHARACTERS_DATA_RESPONSE,
   CHARACTERS_DATA_FAILED,
-  SET_PAGES_COUNT,
-  SET_CURRENT_PAGE,
+  CHARACTERS_SET_PAGES_COUNT,
+  CHARACTERS_SET_CURRENT_PAGE,
 } from 'constants/actions';
 import {
   RequestDataCharactersAction,
@@ -29,11 +29,11 @@ export const fetchDataCharactersFailed = (text: string): FailedDataCharactersAct
 });
 
 export const setPagesCount = (count: number): SetPagesCountAction => ({
-  type: SET_PAGES_COUNT,
+  type: CHARACTERS_SET_PAGES_COUNT,
   payload: count,
 });
 
 export const setCurrentPage = (currentPage: number): SetCurrentPageAction => ({
-  type: SET_CURRENT_PAGE,
+  type: CHARACTERS_SET_CURRENT_PAGE,
   payload: currentPage,
 });

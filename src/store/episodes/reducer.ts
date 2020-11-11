@@ -2,8 +2,8 @@ import {
   EPISODES_DATA_REQUEST,
   EPISODES_DATA_RESPONSE,
   EPISODES_DATA_FAILED,
-  SET_PAGES_COUNT,
-  SET_CURRENT_PAGE,
+  EPISODES_SET_PAGES_COUNT,
+  EPISODES_SET_CURRENT_PAGE,
 } from 'constants/actions';
 import { EpisodesActionTypes, InitialStateEpisodes } from './types';
 
@@ -34,12 +34,12 @@ export default (state = initialState, action: EpisodesActionTypes): InitialState
         error: action.payload,
         isLoading: false,
       };
-    case SET_PAGES_COUNT:
+    case EPISODES_SET_PAGES_COUNT:
       return {
         ...state,
         pagesCount: action.payload,
       };
-    case SET_CURRENT_PAGE:
+    case EPISODES_SET_CURRENT_PAGE:
       return {
         ...state,
         currentPage: action.payload,

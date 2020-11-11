@@ -1,6 +1,6 @@
 import { takeEvery, call, put, select } from 'redux-saga/effects';
 import { EPISODES_DATA_REQUEST } from 'constants/actions';
-import { getCurrentPage } from 'store/characters';
+import { getCurrentPage } from 'store/episodes';
 import { fetchDataEpisodesResponse, fetchDataEpisodesFailed, setPagesCount } from './actions';
 import getEpisodes from 'api/fetchEpisodesList';
 
