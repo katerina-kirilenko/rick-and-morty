@@ -1,0 +1,14 @@
+@import '../../mixins.scss';
+
+.episodes-page {
+  .episodes-list {
+    .list-header {
+      @include flex_space_between;
+
+      * {
+        width: 50%;
+        text-align: left;
+      }
+    }
+  }
+}
