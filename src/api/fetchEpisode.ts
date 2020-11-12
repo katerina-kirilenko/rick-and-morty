@@ -2,12 +2,10 @@ import queryString from 'query-string';
 import { Episode } from 'types/episodes';
 import { BASE_URL_API, EPISODE } from 'constants/paths';
 
-const getEpisodes = async (currentPage: number): Promise<Episode[]> => {
+const getEpisode = async (id: string): Promise<Episode> => {
   const queryOptions = {
-    url: BASE_URL_API + EPISODE,
-    query: {
-      page: currentPage,
-    },
+    url: BASE_URL_API + EPISODE + id,
+    query: {},
   };
 
   const queryUrl = queryString.stringifyUrl(queryOptions);
@@ -22,4 +20,4 @@ const getEpisodes = async (currentPage: number): Promise<Episode[]> => {
   return data;
 };
 
-export default getEpisodes;
+export default getEpisode;

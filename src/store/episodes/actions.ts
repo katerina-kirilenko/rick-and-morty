@@ -5,11 +5,17 @@ import {
   EPISODES_DATA_FAILED,
   EPISODES_SET_PAGES_COUNT,
   EPISODES_SET_CURRENT_PAGE,
+  EPISODE_REQUEST,
+  EPISODE_RESPONSE,
+  EPISODE_FAILED,
 } from 'constants/actions';
 import {
   RequestDataEpisodesAction,
   ResponseDataEpisodesAction,
   FailedDataEpisodesAction,
+  RequestEpisodeAction,
+  ResponseEpisodeAction,
+  FailedEpisodeAction,
   SetPagesCountAction,
   SetCurrentPageAction,
 } from './types';
@@ -25,6 +31,21 @@ export const fetchDataEpisodesResponse = (data: Episode[]): ResponseDataEpisodes
 
 export const fetchDataEpisodesFailed = (text: string): FailedDataEpisodesAction => ({
   type: EPISODES_DATA_FAILED,
+  payload: text,
+});
+
+export const fetchEpisodeRequest = (id: string): RequestEpisodeAction => ({
+  type: EPISODE_REQUEST,
+  payload: id,
+});
+
+export const fetchEpisodeResponse = (data: Episode): ResponseEpisodeAction => ({
+  type: EPISODE_RESPONSE,
+  payload: data,
+});
+
+export const fetchEpisodeFailed = (text: string): FailedEpisodeAction => ({
+  type: EPISODE_FAILED,
   payload: text,
 });
 

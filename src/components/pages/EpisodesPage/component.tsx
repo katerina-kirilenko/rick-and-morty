@@ -9,11 +9,11 @@ import {
   getEpisodes,
   setCurrentPage,
 } from 'store/episodes';
-import Pagination from 'components/blocks/Pagination';
 import Header from 'components/blocks/Header';
+import EpisodesList from 'components/blocks/EpisodesList';
+import Pagination from 'components/blocks/Pagination';
 import ErrorAlert from 'components/blocks/ErrorAlert';
 import Spinner from 'components/blocks/Spinner';
-import EpisodesList from 'components/blocks/EpisodesList';
 import { useClasses } from './styles';
 
 interface dataType {

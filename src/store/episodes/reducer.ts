@@ -4,11 +4,15 @@ import {
   EPISODES_DATA_FAILED,
   EPISODES_SET_PAGES_COUNT,
   EPISODES_SET_CURRENT_PAGE,
+  EPISODE_REQUEST,
+  EPISODE_RESPONSE,
+  EPISODE_FAILED,
 } from 'constants/actions';
 import { EpisodesActionTypes, InitialStateEpisodes } from './types';
 
 const initialState = {
   data: [],
+  selectedEpisode: null,
   isLoading: false,
   error: null,
   pagesCount: 0,
@@ -29,6 +33,23 @@ export default (state = initialState, action: EpisodesActionTypes): InitialState
         isLoading: false,
       };
     case EPISODES_DATA_FAILED:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    case EPISODE_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case EPISODE_RESPONSE:
+      return {
+        ...state,
+        selectedEpisode: action.payload,
+        isLoading: false,
+      };
+    case EPISODE_FAILED:
       return {
         ...state,
         error: action.payload,

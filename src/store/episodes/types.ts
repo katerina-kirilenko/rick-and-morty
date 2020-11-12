@@ -4,11 +4,15 @@ import {
   EPISODES_DATA_FAILED,
   EPISODES_SET_PAGES_COUNT,
   EPISODES_SET_CURRENT_PAGE,
+  EPISODE_REQUEST,
+  EPISODE_RESPONSE,
+  EPISODE_FAILED,
 } from 'constants/actions';
 import { Episode } from 'types/episodes';
 
 export interface InitialStateEpisodes {
   data: Episode[];
+  selectedEpisode: Episode | null;
   isLoading: boolean;
   error: string | null;
   pagesCount: number;
@@ -29,6 +33,21 @@ export interface FailedDataEpisodesAction {
   payload: string;
 }
 
+export interface RequestEpisodeAction {
+  type: typeof EPISODE_REQUEST;
+  payload: string;
+}
+
+export interface ResponseEpisodeAction {
+  type: typeof EPISODE_RESPONSE;
+  payload: Episode;
+}
+
+export interface FailedEpisodeAction {
+  type: typeof EPISODE_FAILED;
+  payload: string;
+}
+
 export interface SetPagesCountAction {
   type: typeof EPISODES_SET_PAGES_COUNT;
   payload: number;
@@ -44,4 +63,12 @@ export type EpisodesActionTypes =
   | ResponseDataEpisodesAction
   | FailedDataEpisodesAction
   | SetPagesCountAction
-  | SetCurrentPageAction;
+  | SetCurrentPageAction
+  | RequestEpisodeAction
+  | ResponseEpisodeAction
+  | FailedEpisodeAction;
+
+export interface EpisodePropsSaga {
+  type: string;
+  payload: string;
+}

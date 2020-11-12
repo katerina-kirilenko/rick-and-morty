@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import colors from 'theme/colors';
 
-export const useClasses = makeStyles((theme) => ({
+export const useClasses = makeStyles(({ breakpoints }) => ({
   container: {
     fontSize: '0.85rem',
     padding: '1rem',
@@ -14,7 +14,7 @@ export const useClasses = makeStyles((theme) => ({
     alignContent: 'center',
     borderBottom: '1px solid #adadad',
     paddingBottom: '1rem',
-    [theme.breakpoints.down(500)]: {
+    [breakpoints.down(500)]: {
       flexDirection: 'column',
       alignItems: 'center',
     },
@@ -25,7 +25,7 @@ export const useClasses = makeStyles((theme) => ({
     overflow: 'hidden',
     marginRight: '3rem',
     borderRadius: '0.5rem',
-    [theme.breakpoints.down(500)]: {
+    [breakpoints.down(500)]: {
       marginRight: 0,
     },
     '& img': {
@@ -37,13 +37,13 @@ export const useClasses = makeStyles((theme) => ({
   description: {
     textAlign: 'left',
     width: '70%',
-    [theme.breakpoints.down(500)]: {
+    [breakpoints.down(500)]: {
       textAlign: 'center',
     },
     '& span': {
       color: '#adadad',
       marginRight: '0.5rem',
-      [theme.breakpoints.down(500)]: {
+      [breakpoints.down(500)]: {
         display: 'block',
       },
     },
