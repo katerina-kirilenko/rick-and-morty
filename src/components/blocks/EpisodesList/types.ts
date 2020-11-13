@@ -1,5 +1,5 @@
-import { Episode } from 'types/episodes';
 import { MouseEvent } from 'react';
+import { Episode } from 'types/episodes';
 
 export interface ListProps {
   data: Episode[] | null;
