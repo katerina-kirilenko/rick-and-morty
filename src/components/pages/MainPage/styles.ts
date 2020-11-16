@@ -1,36 +1,34 @@
 import { makeStyles } from '@material-ui/core/styles';
 import colors from 'theme/colors';
 
-export const useClasses = makeStyles((theme) => ({
+export const useClasses = makeStyles(({ breakpoints }) => ({
   mainPage: {
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-
     background: colors.backgroundDark,
   },
   pageDescription: {
     background: '#fff',
     width: '100%',
-    height: '30vh',
+    height: '16rem',
     padding: '0.5rem',
     '& p': {
       margin: '0.4rem',
     },
-    [theme.breakpoints.down(726)]: {
+    [breakpoints.down(726)]: {
       height: 'auto',
     },
   },
   menuCards: {
     display: 'flex',
-    justifyContent: 'space_between',
+    justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
-    maxWidth: '728px',
+    maxWidth: '1200px',
     height: '70vh',
     padding: '0 1rem',
-    [theme.breakpoints.down(726)]: {
+    [breakpoints.down(968)]: {
       justifyContent: 'center',
       height: 'auto',
     },

@@ -8,8 +8,8 @@ export const useClasses = makeStyles(() => ({
     alignItems: 'center',
     flexDirection: 'column',
     margin: '1rem',
-    width: '100%',
-    maxWidth: '200px',
+    maxWidth: '280px',
+    minHeight: '340px',
     backgroundColor: 'rgb(60, 62, 68)',
     boxShadow: 'rgba(0, 0, 0, 0.3) 0px 4px 6px -1px, rgba(0, 0, 0, 0.3) 0px 2px 4px -1px',
     borderRadius: '0.5rem',
@@ -27,7 +27,6 @@ export const useClasses = makeStyles(() => ({
     },
   },
   imgWrapper: {
-    height: '200px',
     '& img': {
       width: '100%',
     },

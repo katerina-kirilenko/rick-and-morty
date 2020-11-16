@@ -6,7 +6,7 @@ export const useClasses = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '0.5rem 0',
+    padding: '0.7rem 0',
     backgroundColor: colors.backgroundDark,
   },
   headerLinks: {
@@ -16,11 +16,15 @@ export const useClasses = makeStyles(() => ({
     lineHeight: '1.6rem',
   },
   link: {
-    padding: '0 6px',
+    padding: '0 8px',
     textDecoration: 'none',
+    textTransform: 'capitalize',
     color: '#fff',
     '&:hover': {
       color: colors.primaryColor,
     },
+  },
+  linkActive: {
+    color: colors.primaryColor,
   },
 }));

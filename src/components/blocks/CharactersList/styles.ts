@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useClasses = makeStyles((theme) => ({
+export const useClasses = makeStyles(({ breakpoints }) => ({
   list: {
     marginTop: '0.3rem',
     '& ul': {
       paddingLeft: 0,
-      [theme.breakpoints.down(500)]: {
+      [breakpoints.down(500)]: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -19,9 +19,9 @@ export const useClasses = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '1rem',
-    fontSize: '12px',
+    fontSize: '1.2rem',
     color: '#888',
-    [theme.breakpoints.down(500)]: {
+    [breakpoints.down(500)]: {
       display: 'none',
     },
     '& span': {

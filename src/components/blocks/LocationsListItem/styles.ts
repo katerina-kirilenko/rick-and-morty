@@ -1,14 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles';
 import colors from 'theme/colors';
 
-export const useClasses = makeStyles(() => ({
+export const useClasses = makeStyles(({ breakpoints }) => ({
   listItem: {
     listStyle: 'none',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    fontSize: '12px',
+    fontSize: '1rem',
     textAlign: 'left',
     padding: '0 0.5rem',
     borderTop: '1px solid #ccc',
@@ -21,8 +21,12 @@ export const useClasses = makeStyles(() => ({
     '& p': {
       width: '100%',
       textAlign: 'left',
-      margin: '6px 0',
+      margin: '1rem 0',
       paddingRight: '0.5rem',
+      [breakpoints.down(500)]: {
+        fontSize: '0.8rem',
+        margin: '0.5rem 0',
+      },
     },
   },
   locationName: {

@@ -7,6 +7,7 @@ export default createGlobalStyle<any>`
 
   body {
     margin: 0;
+    font-size: 10px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
       'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -31,7 +32,6 @@ export default createGlobalStyle<any>`
 
   .page {
     background-color: rgb(36, 40, 47);
-    padding-bottom: 1rem;
     min-height: 100vh;
   }
 
@@ -39,5 +39,11 @@ export default createGlobalStyle<any>`
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: rgb(245, 245, 245);
+  }
+
+  @media screen and (max-width: 768px) {
+    .page {
+      padding-bottom: 1rem;
+    }
   }
 `;

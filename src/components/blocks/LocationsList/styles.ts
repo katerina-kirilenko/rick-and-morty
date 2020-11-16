@@ -19,7 +19,7 @@ export const useClasses = makeStyles(({ breakpoints }) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '1rem',
-    fontSize: '12px',
+    fontSize: '1.2rem',
     color: '#888',
     [breakpoints.down(500)]: {
       display: 'none',
