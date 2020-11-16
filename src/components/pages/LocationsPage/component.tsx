@@ -27,8 +27,8 @@ const LocationsPage = (): ReactElement => {
   const pagesCount = useSelector(getPagesCount);
   const currentPage = useSelector(getCurrentPage);
 
-  const { data, isLoading, error } = useSelector(getLocations);
-  const hasData = !(isLoading || error);
+  const { locations, isLoadingLocationsList, errorLocationsList } = useSelector(getLocations);
+  const hasData = !(isLoadingLocationsList || errorLocationsList);
 
   const history = useHistory();
   const handler = useCallback((id: string | number) => (): void => history.push(`${id}`), [
@@ -51,9 +51,9 @@ const LocationsPage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className="container">
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
-          {hasData && <LocationsList data={data} onItemSelected={handler} />}
+          {errorLocationsList && <ErrorAlert errorText={errorLocationsList} />}
+          {isLoadingLocationsList && <Spinner />}
+          {hasData && <LocationsList data={locations} onItemSelected={handler} />}
 
           <Pagination
             pageCount={pagesCount}

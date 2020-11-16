@@ -19,8 +19,8 @@ const CharacterPage = (): ReactElement => {
     dispatch(fetchCharacterRequest(id));
   }, [id]);
 
-  const { isLoading, error, selectedCharacter } = useSelector(getCharacter);
-  const hasData = !(isLoading || error);
+  const { isLoadingCharacter, errorCharacter, selectedCharacter } = useSelector(getCharacter);
+  const hasData = !(isLoadingCharacter || errorCharacter);
   const { episode, gender, image, location, name, origin, species, status, type } =
     selectedCharacter || {};
 
@@ -40,8 +40,8 @@ const CharacterPage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className={classes.container}>
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
+          {errorCharacter && <ErrorAlert errorText={errorCharacter} />}
+          {isLoadingCharacter && <Spinner />}
           {hasData && (
             <>
               <div className={classes.about}>

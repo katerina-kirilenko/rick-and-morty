@@ -11,10 +11,12 @@ import {
 import { Episode } from 'types/episodes';
 
 export interface InitialStateEpisodes {
-  data: Episode[];
+  episodes: Episode[];
   selectedEpisode: Episode | null;
-  isLoading: boolean;
-  error: string | null;
+  isLoadingEpisodesList: boolean;
+  errorEpisodesList: string | null;
+  isLoadingEpisode: boolean;
+  errorEpisode: string | null;
   pagesCount: number;
   currentPage: number;
 }

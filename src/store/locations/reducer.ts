@@ -11,10 +11,12 @@ import {
 import { LocationsActionTypes, InitialStateLocations } from './types';
 
 const initialState = {
-  data: [],
+  locations: [],
   selectedLocation: null,
-  isLoading: false,
-  error: null,
+  isLoadingLocationsList: false,
+  errorLocationsList: null,
+  isLoadingLocation: false,
+  errorLocation: null,
   pagesCount: 0,
   currentPage: 0,
 };
@@ -24,36 +26,36 @@ export default (state = initialState, action: LocationsActionTypes): InitialStat
     case LOCATIONS_DATA_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingLocationsList: true,
       };
     case LOCATIONS_DATA_RESPONSE:
       return {
         ...state,
-        data: action.payload,
-        isLoading: false,
+        locations: action.payload,
+        isLoadingLocationsList: false,
       };
     case LOCATIONS_DATA_FAILED:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false,
+        errorLocationsList: action.payload,
+        isLoadingLocationsList: false,
       };
     case LOCATION_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingLocation: true,
       };
     case LOCATION_RESPONSE:
       return {
         ...state,
         selectedLocation: action.payload,
-        isLoading: false,
+        isLoadingLocation: false,
       };
     case LOCATION_FAILED:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false,
+        errorLocation: action.payload,
+        isLoadingLocation: false,
       };
     case LOCATIONS_SET_PAGES_COUNT:
       return {

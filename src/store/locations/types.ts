@@ -11,10 +11,12 @@ import {
 import { Location } from 'types/locations';
 
 export interface InitialStateLocations {
-  data: Location[];
+  locations: Location[];
   selectedLocation: Location | null;
-  isLoading: boolean;
-  error: string | null;
+  isLoadingLocationsList: boolean;
+  errorLocationsList: string | null;
+  isLoadingLocation: boolean;
+  errorLocation: string | null;
   pagesCount: number;
   currentPage: number;
 }

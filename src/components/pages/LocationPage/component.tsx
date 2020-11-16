@@ -19,8 +19,8 @@ const LocationPage = (): ReactElement => {
     dispatch(fetchLocationRequest(id));
   }, [id]);
 
-  const { isLoading, error, selectedLocation } = useSelector(getLocation);
-  const hasData = !(isLoading || error);
+  const { isLoadingLocation, errorLocation, selectedLocation } = useSelector(getLocation);
+  const hasData = !(isLoadingLocation || errorLocation);
   const { name, type, dimension, residents } = selectedLocation || {};
 
   const charactersList = residents?.map((item, idx) => {
@@ -39,8 +39,8 @@ const LocationPage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className={classes.container}>
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
+          {errorLocation && <ErrorAlert errorText={errorLocation} />}
+          {isLoadingLocation && <Spinner />}
           {hasData && (
             <>
               <div className={classes.description}>

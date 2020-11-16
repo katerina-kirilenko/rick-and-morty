@@ -19,8 +19,8 @@ const EpisodePage = (): ReactElement => {
     dispatch(fetchEpisodeRequest(id));
   }, [id]);
 
-  const { isLoading, error, selectedEpisode } = useSelector(getEpisode);
-  const hasData = !(isLoading || error);
+  const { isLoadingEpisode, errorEpisode, selectedEpisode } = useSelector(getEpisode);
+  const hasData = !(isLoadingEpisode || errorEpisode);
   const { name, air_date, episode, characters } = selectedEpisode || {};
 
   const charactersList = characters?.map((item, idx) => {
@@ -39,8 +39,8 @@ const EpisodePage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className={classes.container}>
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
+          {errorEpisode && <ErrorAlert errorText={errorEpisode} />}
+          {isLoadingEpisode && <Spinner />}
           {hasData && (
             <>
               <div className={classes.description}>

@@ -11,10 +11,12 @@ import {
 import { CharactersActionTypes, InitialStateCharacters } from './types';
 
 const initialState = {
-  data: [],
+  characters: [],
+  isLoadingCharactersList: false,
+  errorCharactersList: null,
   selectedCharacter: null,
-  isLoading: false,
-  error: null,
+  isLoadingCharacter: false,
+  errorCharacter: null,
   pagesCount: 0,
   currentPage: 0,
 };
@@ -24,36 +26,36 @@ export default (state = initialState, action: CharactersActionTypes): InitialSta
     case CHARACTERS_DATA_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingCharactersList: true,
       };
     case CHARACTERS_DATA_RESPONSE:
       return {
         ...state,
-        data: action.payload,
-        isLoading: false,
+        characters: action.payload,
+        isLoadingCharactersList: false,
       };
     case CHARACTERS_DATA_FAILED:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false,
+        errorCharactersList: action.payload,
+        isLoadingCharactersList: false,
       };
     case CHARACTER_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingCharacter: true,
       };
     case CHARACTER_RESPONSE:
       return {
         ...state,
         selectedCharacter: action.payload,
-        isLoading: false,
+        isLoadingCharacter: false,
       };
     case CHARACTER_FAILED:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false,
+        errorCharacter: action.payload,
+        isLoadingCharacter: false,
       };
     case CHARACTERS_SET_PAGES_COUNT:
       return {
