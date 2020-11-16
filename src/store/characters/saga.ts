@@ -1,8 +1,16 @@
-import { takeEvery, call, put, select } from 'redux-saga/effects';
-import { CHARACTERS_DATA_REQUEST } from 'constants/actions';
-import { getCurrentPage } from 'store/characters';
-import { fetchDataCharactersResponse, fetchDataCharactersFailed, setPagesCount } from './actions';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import getCharacters from 'api/fetchCharactersList';
+import getCharacter from 'api/fetchCharacter';
+import { getCurrentPage } from 'store/characters';
+import { CHARACTERS_DATA_REQUEST, CHARACTER_REQUEST } from 'constants/actions';
+import {
+  fetchDataCharactersResponse,
+  fetchDataCharactersFailed,
+  setPagesCount,
+  fetchCharacterResponse,
+  fetchCharacterFailed,
+} from './actions';
+import { CharacterPropsSaga } from './types';
 
 function* getDataCharacters() {
   try {
@@ -16,6 +24,16 @@ function* getDataCharacters() {
   }
 }
 
+function* getDataCharacter({ payload }: CharacterPropsSaga) {
+  try {
+    const results = yield call(getCharacter, payload);
+    yield put(fetchCharacterResponse(results));
+  } catch (error) {
+    yield put(fetchCharacterFailed(`Something went wrong ${error}`));
+  }
+}
+
 export default function* (): Generator {
-  yield takeEvery(CHARACTERS_DATA_REQUEST, getDataCharacters);
+  yield takeLatest(CHARACTERS_DATA_REQUEST, getDataCharacters);
+  yield takeLatest(CHARACTER_REQUEST, getDataCharacter);
 }
