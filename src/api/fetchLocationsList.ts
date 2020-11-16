@@ -1,8 +1,16 @@
+import queryString from 'query-string';
 import { Location } from 'types/locations';
-import { BASE_URL_API } from 'constants/paths';
+import { BASE_URL_API, LOCATION } from 'constants/paths';
 
-const getLocations = async (): Promise<Location[]> => {
-  const queryUrl = `${BASE_URL_API}/location`;
+const getLocations = async (currentPage: number): Promise<Location[]> => {
+  const queryOptions = {
+    url: BASE_URL_API + LOCATION,
+    query: {
+      page: currentPage,
+    },
+  };
+
+  const queryUrl = queryString.stringifyUrl(queryOptions);
   const response = await fetch(queryUrl);
 
   if (!response.ok) {
@@ -11,7 +19,7 @@ const getLocations = async (): Promise<Location[]> => {
   }
 
   const data = await response.json();
-  return data.results;
+  return data;
 };
 
 export default getLocations;

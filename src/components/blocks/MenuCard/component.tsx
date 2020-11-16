@@ -1,23 +1,17 @@
-import React, { ReactElement, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { ReactElement } from 'react';
 import { MenuCardProps } from './types';
-import { fetchDataCharactersRequest } from 'store/characters';
-import './style.css';
+import { useClasses } from './styles';
 
 const MenuCard = ({ img, label }: MenuCardProps): ReactElement => {
-  const dispatch = useDispatch();
-
-  const handlerClickByCard = useCallback(() => {
-    dispatch(fetchDataCharactersRequest());
-  }, [dispatch]);
+  const classes = useClasses();
 
   return (
-    <div className="menu-card" onClick={handlerClickByCard}>
-      <div className="img-wrapper">
+    <div className={classes.menuCard}>
+      <div className={classes.imgWrapper}>
         <img src={img} alt={label} title={label} />
       </div>
-      <div className="card-description">
-        <h3 className="card-title">{label}</h3>
+      <div>
+        <h3 className={classes.cardTitle}>{label}</h3>
       </div>
     </div>
   );

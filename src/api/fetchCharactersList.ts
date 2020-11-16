@@ -1,8 +1,16 @@
+import queryString from 'query-string';
 import { Character } from 'types/characters';
-import { BASE_URL_API } from 'constants/paths';
+import { BASE_URL_API, CHARACTER } from 'constants/paths';
 
-const getCharacters = async (): Promise<Character[]> => {
-  const queryUrl = `${BASE_URL_API}/character`;
+const getCharacters = async (currentPage: number): Promise<Character[]> => {
+  const queryOptions = {
+    url: BASE_URL_API + CHARACTER,
+    query: {
+      page: currentPage,
+    },
+  };
+
+  const queryUrl = queryString.stringifyUrl(queryOptions);
   const response = await fetch(queryUrl);
 
   if (!response.ok) {
@@ -11,7 +19,7 @@ const getCharacters = async (): Promise<Character[]> => {
   }
 
   const data = await response.json();
-  return data.results;
+  return data;
 };
 
 export default getCharacters;

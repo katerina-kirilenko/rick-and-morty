@@ -1,16 +1,11 @@
 import React, { ReactElement, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import CharactersListItem from 'components/blocks/CharactersListItem';
-import { ListProps } from './types';
 import { Character } from 'types/characters';
-import { getCharacters } from 'store/characters';
-import ErrorAlert from 'components/blocks/ErrorAlert';
-import Spinner from 'components/blocks/Spinner';
-import './style.css';
+import { ListProps } from './types';
+import { useClasses } from './styles';
 
-const CharactersList = ({ onItemSelected }: ListProps): ReactElement => {
-  const { data, isLoading, error } = useSelector(getCharacters);
-  const hasData = !(isLoading || error);
+const CharactersList = ({ data, onItemSelected }: ListProps): ReactElement => {
+  const classes = useClasses();
 
   const renderList = useCallback(() => {
     if (data) {
@@ -23,11 +18,18 @@ const CharactersList = ({ onItemSelected }: ListProps): ReactElement => {
   }, [data]);
 
   return (
-    <ul className="characters-list">
-      {error && <ErrorAlert errorText={error} />}
-      {isLoading && <Spinner />}
-      {hasData && renderList()}
-    </ul>
+    <div className={classes.list}>
+      {data && (
+        <div className={classes.listHeader}>
+          <span className={classes.listTitleImg}>Photo</span>
+          <span className={classes.listTitleName}>Name</span>
+          <span className={classes.listTitleStatus}>Status – Species</span>
+          <span className={classes.listTitleOrigin}>Origin location</span>
+          <span className={classes.listTitleLocation}>Last known location</span>
+        </div>
+      )}
+      <ul>{data && renderList()}</ul>
+    </div>
   );
 };
 

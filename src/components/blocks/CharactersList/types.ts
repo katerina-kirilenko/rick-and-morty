@@ -1,5 +1,7 @@
+import { Character } from 'types/characters';
 import { MouseEvent } from 'react';
 
 export interface ListProps {
-  onItemSelected: (id: string) => (event: MouseEvent<HTMLElement>) => void;
+  data: Character[] | null;
+  onItemSelected: (id: string | number) => (event: MouseEvent<HTMLElement>) => void;
 }

@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { MAIN, CHARACTERS, EPISODES, LOCATIONS } from 'constants/paths';
+import { useClasses } from './styles';
 import icon from 'assets/icon.svg';
-import './style.css';
 
 const headerLinks = [
   { path: MAIN, label: 'Home' },
@@ -12,13 +12,15 @@ const headerLinks = [
 ];
 
 const Header = (): ReactElement => {
+  const classes = useClasses();
+
   return (
-    <div className="header">
-      <img src={icon} alt="icon" />
-      <div>
+    <div className={classes.header}>
+      <img src={icon} alt="logo" />
+      <div className={classes.headerLinks}>
         {headerLinks.map((link) => (
-          <Link to={link.path} key={link.label} className="link">
-            <span className="link-label">{link.label}</span>
+          <Link to={link.path} key={link.label} className={classes.link}>
+            <span>{link.label}</span>
           </Link>
         ))}
       </div>
