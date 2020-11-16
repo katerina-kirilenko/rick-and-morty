@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLocationRequest, getLocation } from 'store/locations';
 import Header from 'components/blocks/Header';
@@ -27,7 +27,9 @@ const LocationPage = (): ReactElement => {
     const characterNumber = item.match(/\d+/);
     return (
       <li key={idx}>
-        <a href={`${CHARACTERS}${characterNumber}`}>Character № {characterNumber}</a>
+        <Link to={`${CHARACTERS}${characterNumber}`}>
+          <span>Character № {characterNumber}</span>
+        </Link>
       </li>
     );
   });

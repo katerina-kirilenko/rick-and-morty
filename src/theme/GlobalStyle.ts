@@ -33,6 +33,7 @@ export default createGlobalStyle<any>`
   .page {
     background-color: rgb(36, 40, 47);
     min-height: 100vh;
+    width: 100%;
   }
 
   .container {

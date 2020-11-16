@@ -10,7 +10,7 @@ export const useClasses = makeStyles(({ breakpoints }) => ({
   },
   pageDescription: {
     background: '#fff',
-    width: '100%',
+    width: '100vw',
     height: '16rem',
     padding: '0.5rem',
     '& p': {

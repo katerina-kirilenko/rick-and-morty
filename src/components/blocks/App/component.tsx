@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import {
@@ -19,6 +19,7 @@ import EpisodesPage from 'components/pages/EpisodesPage';
 import CharacterPage from 'components/pages/CharacterPage';
 import LocationPage from 'components/pages/LocationPage';
 import EpisodePage from 'components/pages/EpisodePage';
+import ErrorAlert from 'components/blocks/ErrorAlert';
 import { useClasses } from './styles';
 
 const App = (): ReactElement => {
@@ -29,14 +30,22 @@ const App = (): ReactElement => {
       <Router>
         <div className={classes.app}>
           <Provider store={store}>
-            <Route path={MAIN} component={MainPage} exact />
-            <Route path={CHARACTERS} component={CharactersPage} exact />
-            <Route path={LOCATIONS} component={LocationsPage} exact />
-            <Route path={EPISODES} component={EpisodesPage} exact />
+            <Switch>
+              <Route path={MAIN} component={MainPage} exact />
+              <Route path={CHARACTERS} component={CharactersPage} exact />
+              <Route path={LOCATIONS} component={LocationsPage} exact />
+              <Route path={EPISODES} component={EpisodesPage} exact />
 
-            <Route path={SELECTED_CHARACTER} component={CharacterPage} />
-            <Route path={SELECTED_LOCATIONS} component={LocationPage} />
-            <Route path={SELECTED_EPISODE} component={EpisodePage} />
+              <Route path={SELECTED_CHARACTER} component={CharacterPage} />
+              <Route path={SELECTED_LOCATIONS} component={LocationPage} />
+              <Route path={SELECTED_EPISODE} component={EpisodePage} />
+
+              <Route
+                render={() => {
+                  return <ErrorAlert errorText="Page not found" />;
+                }}
+              />
+            </Switch>
           </Provider>
         </div>
       </Router>

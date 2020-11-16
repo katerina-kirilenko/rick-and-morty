@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCharacterRequest, getCharacter } from 'store/characters';
 import Header from 'components/blocks/Header';
@@ -28,7 +28,9 @@ const CharacterPage = (): ReactElement => {
     const episodeNumber = item.match(/\d+/);
     return (
       <li key={idx}>
-        <a href={`${EPISODES}${episodeNumber}`}>Episode № {episodeNumber}</a>
+        <Link to={`${EPISODES}${episodeNumber}`}>
+          <span>Episode № {episodeNumber}</span>
+        </Link>
       </li>
     );
   });
