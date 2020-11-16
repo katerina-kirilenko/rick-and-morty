@@ -16,7 +16,7 @@ const Header = (): ReactElement => {
   const classes = useClasses();
 
   const { location } = useHistory();
-  const path = location.pathname.match(/\/[a-z]+\//) as RegExpMatchArray;
+  const path = location.pathname.match(/\/[a-z]+\//) || ' ';
 
   return (
     <div className={classes.header}>

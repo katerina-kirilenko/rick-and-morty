@@ -11,4 +11,12 @@ const Template: Story = (args) => <Header {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  active: false,
+};
+
+export const ActiveLink = Template.bind({});
+
+ActiveLink.args = {
+  active: true,
+};

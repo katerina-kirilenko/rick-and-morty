@@ -7,6 +7,7 @@ export const useClasses = makeStyles(() => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '0.7rem 0',
+    fontSize: '1.5rem',
     backgroundColor: colors.backgroundDark,
   },
   headerLinks: {

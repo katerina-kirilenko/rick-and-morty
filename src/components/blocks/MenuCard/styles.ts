@@ -7,6 +7,7 @@ export const useClasses = makeStyles(() => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'column',
+    fontSize: '1.5rem',
     margin: '1rem',
     maxWidth: '280px',
     minHeight: '340px',
