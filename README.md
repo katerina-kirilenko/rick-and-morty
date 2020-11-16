@@ -1,6 +1,6 @@
 # Rick and Morty
 
-![screenshot main](./readme_assets/main_page.png)
+Rick is a mad scientist who drags his grandson, Morty, on crazy sci-fi adventures. Their escapades often have potentially harmful consequences for their family ...
 
 ## [Live demo](https://api-rick-and-morty.netlify.app/)
 
