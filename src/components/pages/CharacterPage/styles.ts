@@ -56,8 +56,8 @@ export const useClasses = makeStyles(({ breakpoints }) => ({
     textAlign: 'left',
   },
   episodesList: {
-    columnWidth: '200px',
-    columnCount: 3,
-    columnGap: '50px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    paddingLeft: '0',
   },
 }));

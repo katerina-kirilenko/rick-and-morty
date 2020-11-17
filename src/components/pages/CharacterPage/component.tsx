@@ -1,8 +1,9 @@
 import React, { ReactElement, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCharacterRequest, getCharacter } from 'store/characters';
 import Header from 'components/blocks/Header';
+import ItemListCard from 'components/blocks/ItemListCard';
 import ErrorAlert from 'components/blocks/ErrorAlert';
 import Spinner from 'components/blocks/Spinner';
 import { EPISODES } from 'constants/paths';
@@ -26,13 +27,9 @@ const CharacterPage = (): ReactElement => {
 
   const episodesList = episode?.map((item, idx) => {
     const episodeNumber = item.match(/\d+/);
-    return (
-      <li key={idx}>
-        <Link to={`${EPISODES}${episodeNumber}`}>
-          <span>Episode № {episodeNumber}</span>
-        </Link>
-      </li>
-    );
+    const path = `${EPISODES}${episodeNumber}`;
+
+    return <ItemListCard key={idx} path={path} number={episodeNumber} label="Episode" />;
   });
 
   return (
