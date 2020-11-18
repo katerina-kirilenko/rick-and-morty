@@ -1,15 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 import colors from 'theme/colors';
 
-export const useClasses = makeStyles((theme) => ({
+export const useClasses = makeStyles(({ breakpoints }) => ({
   listItem: {
     listStyle: 'none',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    fontSize: '12px',
+    fontSize: '1rem',
     textAlign: 'left',
-    padding: '0.3rem 0',
+    padding: '0.4rem 0',
     borderTop: '1px solid #ccc',
     backgroundColor: colors.backgroundLight,
     '&:hover': {
@@ -20,10 +20,10 @@ export const useClasses = makeStyles((theme) => ({
     '& p': {
       width: '100%',
     },
-    [theme.breakpoints.down(500)]: {
+    [breakpoints.down(500)]: {
       flexDirection: 'column',
       width: '47%',
-      minHeight: '180px',
+      minHeight: '200px',
       minWidth: '110px',
       border: '1px solid #ccc',
       borderRadius: '5px',
@@ -33,12 +33,13 @@ export const useClasses = makeStyles((theme) => ({
         maxWidth: '100%',
         textAlign: 'center',
         margin: '0.2rem 0',
+        fontSize: '0.8rem',
       },
     },
   },
   avatar: {
-    width: '40px',
-    height: '40px',
+    width: '62px',
+    height: '62px',
     borderRadius: '5px',
     boxShadow: 'rgba(54, 38, 38, 0.4) 0px 2px 4px -1px',
   },

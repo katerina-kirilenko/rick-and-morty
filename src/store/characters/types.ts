@@ -11,10 +11,12 @@ import {
 import { Character } from 'types/characters';
 
 export interface InitialStateCharacters {
-  data: Character[];
+  characters: Character[];
   selectedCharacter: Character | null;
-  isLoading: boolean;
-  error: string | null;
+  isLoadingCharactersList: boolean;
+  errorCharactersList: string | null;
+  isLoadingCharacter: boolean;
+  errorCharacter: string | null;
   pagesCount: number;
   currentPage: number;
 }

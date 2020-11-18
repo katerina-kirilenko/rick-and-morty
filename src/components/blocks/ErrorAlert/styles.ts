@@ -10,7 +10,12 @@ export const useClasses = makeStyles(() => ({
     wordBreak: 'break-word',
     '& span': {
       textAlign: 'center',
-      colors: '#e04545',
+      color: '#e04545',
+      display: 'block',
+      width: '70%',
+      backgroundColor: '#ffe7e4',
+      border: '1px solid #e04545',
+      padding: '2rem',
     },
   },
 }));

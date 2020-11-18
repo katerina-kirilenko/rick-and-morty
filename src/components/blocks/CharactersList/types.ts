@@ -1,5 +1,5 @@
-import { Character } from 'types/characters';
 import { MouseEvent } from 'react';
+import { Character } from 'types/characters';
 
 export interface ListProps {
   data: Character[] | null;

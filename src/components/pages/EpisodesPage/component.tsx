@@ -27,8 +27,8 @@ const EpisodesPage = (): ReactElement => {
   const pagesCount = useSelector(getPagesCount);
   const currentPage = useSelector(getCurrentPage);
 
-  const { data, isLoading, error } = useSelector(getEpisodes);
-  const hasData = !(isLoading || error);
+  const { episodes, isLoadingEpisodesList, errorEpisodesList } = useSelector(getEpisodes);
+  const hasData = !(isLoadingEpisodesList || errorEpisodesList);
 
   const history = useHistory();
   const handler = useCallback((id: string | number) => (): void => history.push(`${id}`), [
@@ -51,9 +51,9 @@ const EpisodesPage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className="container">
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
-          {hasData && <EpisodesList data={data} onItemSelected={handler} />}
+          {errorEpisodesList && <ErrorAlert errorText={errorEpisodesList} />}
+          {isLoadingEpisodesList && <Spinner />}
+          {hasData && <EpisodesList data={episodes} onItemSelected={handler} />}
 
           <Pagination
             pageCount={pagesCount}
