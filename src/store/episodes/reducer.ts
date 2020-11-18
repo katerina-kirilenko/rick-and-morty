@@ -11,10 +11,12 @@ import {
 import { EpisodesActionTypes, InitialStateEpisodes } from './types';
 
 const initialState = {
-  data: [],
+  episodes: [],
   selectedEpisode: null,
-  isLoading: false,
-  error: null,
+  isLoadingEpisodesList: false,
+  errorEpisodesList: null,
+  isLoadingEpisode: false,
+  errorEpisode: null,
   pagesCount: 0,
   currentPage: 0,
 };
@@ -24,36 +26,36 @@ export default (state = initialState, action: EpisodesActionTypes): InitialState
     case EPISODES_DATA_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingEpisodesList: true,
       };
     case EPISODES_DATA_RESPONSE:
       return {
         ...state,
-        data: action.payload,
-        isLoading: false,
+        episodes: action.payload,
+        isLoadingEpisodesList: false,
       };
     case EPISODES_DATA_FAILED:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false,
+        errorEpisodesList: action.payload,
+        isLoadingEpisodesList: false,
       };
     case EPISODE_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoadingEpisode: true,
       };
     case EPISODE_RESPONSE:
       return {
         ...state,
         selectedEpisode: action.payload,
-        isLoading: false,
+        isLoadingEpisode: false,
       };
     case EPISODE_FAILED:
       return {
         ...state,
-        error: action.payload,
-        isLoading: false,
+        errorEpisode: action.payload,
+        isLoadingEpisode: false,
       };
     case EPISODES_SET_PAGES_COUNT:
       return {

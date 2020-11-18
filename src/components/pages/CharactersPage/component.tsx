@@ -26,8 +26,8 @@ const CharactersPage = (): ReactElement => {
   const pagesCount = useSelector(getPagesCount);
   const currentPage = useSelector(getCurrentPage);
 
-  const { data, isLoading, error } = useSelector(getCharacters);
-  const hasData = !(isLoading || error);
+  const { characters, isLoadingCharactersList, errorCharactersList } = useSelector(getCharacters);
+  const hasData = !(isLoadingCharactersList || errorCharactersList);
 
   const history = useHistory();
   const handler = useCallback((id: string | number) => (): void => history.push(`${id}`), [
@@ -50,9 +50,9 @@ const CharactersPage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className={classes.container}>
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
-          {hasData && <CharactersList data={data} onItemSelected={handler} />}
+          {errorCharactersList && <ErrorAlert errorText={errorCharactersList} />}
+          {isLoadingCharactersList && <Spinner />}
+          {hasData && <CharactersList data={characters} onItemSelected={handler} />}
 
           <Pagination
             pageCount={pagesCount}

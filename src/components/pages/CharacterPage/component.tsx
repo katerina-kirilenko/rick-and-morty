@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCharacterRequest, getCharacter } from 'store/characters';
 import Header from 'components/blocks/Header';
+import ItemListCard from 'components/blocks/ItemListCard';
 import ErrorAlert from 'components/blocks/ErrorAlert';
 import Spinner from 'components/blocks/Spinner';
 import { EPISODES } from 'constants/paths';
@@ -19,18 +20,16 @@ const CharacterPage = (): ReactElement => {
     dispatch(fetchCharacterRequest(id));
   }, [id]);
 
-  const { isLoading, error, selectedCharacter } = useSelector(getCharacter);
-  const hasData = !(isLoading || error);
+  const { isLoadingCharacter, errorCharacter, selectedCharacter } = useSelector(getCharacter);
+  const hasData = !(isLoadingCharacter || errorCharacter);
   const { episode, gender, image, location, name, origin, species, status, type } =
     selectedCharacter || {};
 
   const episodesList = episode?.map((item, idx) => {
     const episodeNumber = item.match(/\d+/);
-    return (
-      <li key={idx}>
-        <a href={`${EPISODES}${episodeNumber}`}>Episode № {episodeNumber}</a>
-      </li>
-    );
+    const path = `${EPISODES}${episodeNumber}`;
+
+    return <ItemListCard key={idx} path={path} number={episodeNumber} label="Episode" />;
   });
 
   return (
@@ -38,8 +37,8 @@ const CharacterPage = (): ReactElement => {
       <div className="wrapper">
         <Header />
         <section className={classes.container}>
-          {error && <ErrorAlert errorText={error} />}
-          {isLoading && <Spinner />}
+          {errorCharacter && <ErrorAlert errorText={errorCharacter} />}
+          {isLoadingCharacter && <Spinner />}
           {hasData && (
             <>
               <div className={classes.about}>
